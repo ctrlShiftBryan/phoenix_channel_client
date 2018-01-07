@@ -1,7 +1,7 @@
 defmodule PhoenixChannelClient.Adapters.WebsocketClient do
   @behaviour PhoenixChannelClient.Adapter
 
-  require Logger
+  alias PhoenixChannelClient.Logger
 
   def open(url, opts) do
     Logger.debug "Called Open"

@@ -1,5 +1,5 @@
 defmodule PhoenixChannelClient.Socket do
-  require Logger
+  alias PhoenixChannelClient.Logger
 
   @heartbeat_interval 30_000
   @reconnect_interval 60_000
@@ -10,7 +10,7 @@ defmodule PhoenixChannelClient.Socket do
 
   defmacro __using__(opts) do
     quote do
-      require Logger
+      alias PhoenixChannelClient.Logger
       @otp_app unquote(opts)[:otp_app]
       unquote(socket())
     end

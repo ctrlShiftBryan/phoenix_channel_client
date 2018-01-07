@@ -1,6 +1,6 @@
 defmodule PhoenixChannelClient.Server do
   use GenServer
-  require Logger
+  alias PhoenixChannelClient.Logger
 
   @default_timeout 5_000
 

@@ -25,7 +25,7 @@ defmodule PhoenixChannelClientTest do
 
   defmodule RoomChannel do
     use Phoenix.Channel
-    require Logger
+    alias PhoenixChannelClient.Logger
     def join(topic, message, socket) do
       Logger.debug "Channel Join Called"
       Process.flag(:trap_exit, true)
@@ -118,7 +118,7 @@ defmodule PhoenixChannelClientTest do
 
   defmodule ClientChannel do
     use PhoenixChannelClient
-    require Logger
+    alias PhoenixChannelClient.Logger
 
     def handle_in(event, payload, state) do
       send(state.opts[:caller], {event, payload})
@@ -136,7 +136,7 @@ defmodule PhoenixChannelClientTest do
     end
   end
 
-  require Logger
+  alias PhoenixChannelClient.Logger
 
   setup do
     {:ok, _} = ClientSocket.start_link()
