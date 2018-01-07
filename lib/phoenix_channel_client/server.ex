@@ -134,4 +134,5 @@ defmodule PhoenixChannelClient.Server do
     end
   end
 
+  def handle_info(_, reason, _ref}, state), do: nil
 end
